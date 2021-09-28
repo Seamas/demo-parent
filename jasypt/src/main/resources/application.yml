@@ -1,0 +1,19 @@
+seamas:
+  username: ENC(Waj/fg7ShWs2/+4SGPCHv10WZS6zQN5Pa74md7yroy2QdyFG7oaPuuC/wh18Ut6i)
+  password: ENC(ujO/ZpD1o3mqSuiw4dkwbmShoIAMYqaoLi8zoBWEzc9g+p0dfKZr++deKQ7uQc8z)
+
+
+server:
+  port: 8080
+
+jasypt:
+  encryptor:
+    password: seamas
+
+swagger:
+  enabled: true
+
+logging:
+  level:
+    # 开启url路由注册监测
+    org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping: trace
