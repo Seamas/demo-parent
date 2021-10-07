@@ -9,9 +9,12 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.type.JdbcType;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.TransactionManager;
 
 import javax.sql.DataSource;
 import java.util.HashMap;
@@ -25,13 +28,13 @@ public class DataSourceConfig {
     @Bean(name = "masterDatasource")
     @ConfigurationProperties(prefix = "datasource.master")
     public DataSource getMasterDataSource() {
-        return new MysqlDataSource();
+        return DataSourceBuilder.create().build();
     }
 
     @Bean(name = "slaveDatasource")
     @ConfigurationProperties(prefix = "datasource.slave")
     public DataSource getSlaveDatasource() {
-        return new MysqlDataSource();
+        return DataSourceBuilder.create().build();
     }
 
     @Bean(name = "datasource")
@@ -59,5 +62,11 @@ public class DataSourceConfig {
         sqlSessionFactory.setConfiguration(configuration);
 
         return sqlSessionFactory.getObject();
+    }
+
+
+    @Bean
+    public TransactionManager transactionManager(@Qualifier("datasource")DataSource dataSource) {
+        return new DataSourceTransactionManager(dataSource);
     }
 }

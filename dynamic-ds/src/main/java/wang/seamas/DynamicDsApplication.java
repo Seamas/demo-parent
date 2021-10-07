@@ -2,11 +2,13 @@ package wang.seamas;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
-public class MultiDsApplication {
+@EnableTransactionManagement
+public class DynamicDsApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MultiDsApplication.class, args);
+        SpringApplication.run(DynamicDsApplication.class, args);
     }
 }

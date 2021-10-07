@@ -1,0 +1,13 @@
+datasource:
+  master:
+    jdbc-url: jdbc:mysql://localhost:3306/demo?useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: demo
+    password: 123456
+  slave:
+#    jdbc-url: jdbc:postgresql://localhost:5432/demo?useSSL=false
+#    driver-class-name: org.postgresql.Driver
+    jdbc-url: jdbc:oracle:thin:@localhost:1521/XE
+    driver-class-name: oracle.jdbc.OracleDriver
+    username: demo
+    password: 123456
