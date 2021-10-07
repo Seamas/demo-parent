@@ -17,7 +17,8 @@
         <module>jasypt</module>
         <module>database</module>
         <module>model-api</module>
-        <module>mult-ds</module>
+        <module>dynamic-ds</module>
+        <module>multi-ds</module>
     </modules>
 
     <properties>
