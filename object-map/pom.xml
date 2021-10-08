@@ -11,6 +11,11 @@
 
     <artifactId>object-map</artifactId>
 
+    <properties>
+        <mapstruct.version>1.4.2.Final</mapstruct.version>
+        <lombok.version>1.18.12</lombok.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.modelmapper</groupId>
@@ -25,14 +30,6 @@
             <version>1.4.2.Final</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.mapstruct</groupId>
-            <artifactId>mapstruct-processor</artifactId>
-            <version>1.4.2.Final</version>
-            <scope>provided</scope>
-        </dependency>
-
-
     </dependencies>
 
     <build>
@@ -42,17 +39,20 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <annotationProcessors>
-                        <path>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </path>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <annotationProcessorPaths>
                         <path>
                             <groupId>org.mapstruct</groupId>
                             <artifactId>mapstruct-processor</artifactId>
-                            <version>1.4.2.Final</version>
+                            <version>${mapstruct.version}</version>
                         </path>
-                    </annotationProcessors>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
                 </configuration>
             </plugin>
         </plugins>
