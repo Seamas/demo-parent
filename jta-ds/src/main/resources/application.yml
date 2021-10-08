@@ -1,14 +1,18 @@
 datasource:
   master:
-    jdbc-url: jdbc:mysql://localhost:3306/demo?useSSL=false
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    username: demo
-    password: 123456
+    xa-properties:
+      url: jdbc:mysql://localhost:3306/demo?useSSL=false
+      user: demo
+      password: 123456
+    xa-data-source-class-name: com.mysql.cj.jdbc.MysqlXADataSource
+
   slave:
-    jdbc-url: jdbc:oracle:thin:@localhost:1521/XE
-    driver-class-name: oracle.jdbc.OracleDriver
-    username: demo
-    password: 123456
+    xa-properties:
+      # ORACLE必须使用
+      URL: jdbc:oracle:thin:@localhost:1521/XE
+      user: demo
+      password: 123456
+    xa-data-source-class-name: oracle.jdbc.xa.client.OracleXADataSource
 
 spring:
   jta:
