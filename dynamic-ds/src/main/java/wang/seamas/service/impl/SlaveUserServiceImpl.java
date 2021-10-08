@@ -1,5 +1,6 @@
 package wang.seamas.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import wang.seamas.config.DataSourceManager;
@@ -25,6 +26,6 @@ public class SlaveUserServiceImpl implements UserService {
 
     @Override
     public List<User> selectAll() {
-        return null;
+        return userMapper.selectList(new QueryWrapper<>());
     }
 }
