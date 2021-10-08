@@ -21,6 +21,7 @@
         <module>multi-ds</module>
         <module>jta-ds</module>
         <module>object-map</module>
+        <module>cache</module>
     </modules>
 
     <properties>

@@ -16,12 +16,12 @@ public class JdbcUserServiceImpl implements UserService {
 
     @Override
     public int create(User user) {
-        return jdbcTemplate.update("insert into user(name, age) values(?, ?)", user.getName(), user.getAge());
+        return jdbcTemplate.update("insert into demo_user(name, age) values(?, ?)", user.getName(), user.getAge());
     }
 
     @Override
     public User getByName(String name) {
-        return jdbcTemplate.queryForObject("select name, age from user where name = ?", ((resultSet, i) -> {
+        return jdbcTemplate.queryForObject("select name, age from demo_user where name = ?", ((resultSet, i) -> {
             User user = new User();
             user.setName(resultSet.getString("name"));
             user.setAge(resultSet.getInt("age"));
@@ -31,16 +31,16 @@ public class JdbcUserServiceImpl implements UserService {
 
     @Override
     public int deleteByName(String name) {
-        return jdbcTemplate.update("delete from user where name = ?", name);
+        return jdbcTemplate.update("delete from demo_user where name = ?", name);
     }
 
     @Override
     public Long countAllUsers() {
-        return jdbcTemplate.queryForObject("select count(1) from user", Long.class);
+        return jdbcTemplate.queryForObject("select count(1) from demo_user", Long.class);
     }
 
     @Override
     public int deleteAllUsers() {
-        return jdbcTemplate.update("delete from user");
+        return jdbcTemplate.update("delete from demo_user");
     }
 }

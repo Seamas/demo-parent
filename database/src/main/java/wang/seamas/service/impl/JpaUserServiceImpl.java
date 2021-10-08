@@ -2,6 +2,7 @@ package wang.seamas.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import wang.seamas.model.User;
 import wang.seamas.repository.UserRepository;
 import wang.seamas.service.UserService;
@@ -24,6 +25,7 @@ public class JpaUserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public int deleteByName(String name) {
         return userRepository.deleteByName(name);
     }
