@@ -19,6 +19,7 @@
         <module>model-api</module>
         <module>dynamic-ds</module>
         <module>multi-ds</module>
+        <module>jta-ds</module>
     </modules>
 
     <properties>
