@@ -1,14 +1,22 @@
-<ehcache>
-    <diskStore path="java.io.tmpdir" />
+<config
+        xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+        xmlns='http://www.ehcache.org/v3'
+        xmlns:jsr107='http://www.ehcache.org/v3/jsr107'>
 
-    <defaultCache maxElementsInMemory="2000"
-                  eternal="true"
-                  overflowToDisk="false"
-                  timeToLiveSeconds="1200" />
+    <service>
+        <jsr107:defaults enable-statistics="true"/>
+    </service>
 
-    <cache name="customer"
-           maxElementsInMemory="2000"
-           eternal="false"
-           overflowToDisk="false"
-           timeToLiveSeconds="10" />
-</ehcache>
+    <cache alias="customer">
+        <key-type>java.lang.String</key-type>
+        <value-type>wang.seamas.model.User</value-type>
+        <expiry>
+            <ttl unit="seconds">10</ttl>
+        </expiry>
+
+        <resources>
+            <heap unit="entries">2000</heap>
+            <offheap unit="MB">100</offheap>
+        </resources>
+    </cache>
+</config>
