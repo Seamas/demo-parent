@@ -5,12 +5,13 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.core.Ordered;
 import org.springframework.stereotype.Component;
 
 @Component
 @Slf4j
 @Aspect
-public class AopConfig {
+public class Aop2Config implements Ordered {
 
     @Pointcut("execution(* wang.seamas.service.*.*(..))")
     private void pointCut(){};
@@ -20,10 +21,15 @@ public class AopConfig {
         String name = joinPoint.getSignature().getName();
         Object[] args = joinPoint.getArgs();
         try{
-            log.info("开始, 方法:{}, 参数:{}", name, args);
+            log.info("开始查询2, 方法:{}, 参数:{}", name, args);
             return joinPoint.proceed();
         }finally {
-            log.info("结束查询, 方法:{}, 参数:{}", name, args);
+            log.info("结束查询2, 方法:{}, 参数:{}", name, args);
         }
+    }
+
+    @Override
+    public int getOrder() {
+        return 2;
     }
 }
