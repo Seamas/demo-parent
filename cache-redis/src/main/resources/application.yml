@@ -8,6 +8,7 @@ spring:
         max-active: 8
         max-wait: -1ms
         min-idle: 0
+        time-between-eviction-runs:
       shutdown-timeout: 100ms
 # 使用starter之后，不需要再指定spring.cache.type
 #  cache:
