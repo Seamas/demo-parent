@@ -1,0 +1,23 @@
+elasticjob:
+  reg-center:
+    server-lists: localhost:2181
+    namespace: wang.seamas
+
+  jobs:
+    my-simple-job.elastic-job-class: wang.seamas.job.MySimpleJob
+    my-simple-job.cron: 0/5 * * * * ?
+    my-simple-job.sharding-total-count: 3
+# 配置异步任务线程池
+spring:
+  task:
+    execution:
+      pool:
+        core-size: 5
+        max-size: 10
+        queue-capacity: 10
+        keep-alive: 60s
+        allow-core-thread-timeout: true
+      shutdown:
+        await-termination: false
+        await-termination-period:
+      thread-name-prefix: aysnc-task-

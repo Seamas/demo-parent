@@ -13,8 +13,8 @@ public class ScheduleTasks {
 
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-    @Scheduled(fixedRate = 10000)
+//    @Scheduled(fixedRate = 10000)
     public void reportCurrentTime() {
-        log.info(dateFormat.format(new Date()));
+        log.info("Schedule: {}", dateFormat.format(new Date()));
     }
 }

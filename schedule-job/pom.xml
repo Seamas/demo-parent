@@ -11,5 +11,15 @@
 
     <artifactId>schedule-job</artifactId>
 
+    <dependencies>
+
+        <dependency>
+            <groupId>org.apache.shardingsphere.elasticjob</groupId>
+            <artifactId>elasticjob-lite-spring-boot-starter</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+
+    </dependencies>
+
 
 </project>
