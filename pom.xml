@@ -23,6 +23,8 @@
         <module>object-map</module>
         <module>cache</module>
         <module>cache-redis</module>
+        <module>sp-security</module>
+        <module>schedule-job</module>
     </modules>
 
     <properties>
