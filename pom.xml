@@ -25,6 +25,7 @@
         <module>cache-redis</module>
         <module>sp-security</module>
         <module>schedule-job</module>
+        <module>yml-config</module>
     </modules>
 
     <properties>

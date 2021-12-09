@@ -9,23 +9,26 @@ import org.springframework.stereotype.Component;
 public class ASyncTask {
 
     @Async
-    public void doTaskOne() throws InterruptedException {
+    public Integer doTaskOne() throws InterruptedException {
         log.info("task 1 start....");
         Thread.sleep(10000);
         log.info("task 1 finish....");
+        return 1;
     }
 
     @Async
-    public void doTaskTwo() throws InterruptedException {
+    public Integer doTaskTwo() throws InterruptedException {
         log.info("task 2 start....");
         Thread.sleep(10000);
         log.info("task 2 finish....");
+        return 2;
     }
 
     @Async
-    public void doTaskThree() throws InterruptedException {
+    public Integer doTaskThree() throws InterruptedException {
         log.info("task 3 start....");
         Thread.sleep(10000);
         log.info("task 3 finish....");
+        return 3;
     }
 }

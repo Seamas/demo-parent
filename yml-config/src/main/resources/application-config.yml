@@ -1,0 +1,11 @@
+config:
+  testList:
+    -
+      userName: LiSi
+      age: 24
+    -
+      userName: WangWu
+      age: 30
+  testMap:
+    userName: ZhaoLiu
+    age: 40

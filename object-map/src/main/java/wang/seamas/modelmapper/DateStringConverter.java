@@ -4,9 +4,7 @@ import org.modelmapper.Converter;
 import org.modelmapper.spi.MappingContext;
 
 import java.text.DateFormat;
-import java.text.Format;
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class DateStringConverter implements Converter<Date, String> {

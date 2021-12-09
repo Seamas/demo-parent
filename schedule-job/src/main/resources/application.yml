@@ -12,7 +12,7 @@ spring:
   task:
     execution:
       pool:
-        core-size: 5
+        core-size: 2
         max-size: 10
         queue-capacity: 10
         keep-alive: 60s
